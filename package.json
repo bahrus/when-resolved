@@ -1,6 +1,6 @@
 {
   "name": "when-resolved",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "",
   "homepage": "https://github.com/bahrus/when-resolved#readme",
   "bugs": {
@@ -20,7 +20,7 @@
     "safari": "npx playwright wk http://localhost:8000",
     "update": "ncu -u && npm install"
   },
-    "dependencies": {
+  "dependencies": {
     "be-enhanced": "0.0.182",
     "be-hive": "0.0.262",
     "mount-observer": "0.0.76",
