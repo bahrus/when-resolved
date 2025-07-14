@@ -1,0 +1,20 @@
+{
+  "name": "when-resolved",
+  "version": "0.0.0",
+  "description": "",
+  "homepage": "https://github.com/bahrus/when-resolved#readme",
+  "bugs": {
+    "url": "https://github.com/bahrus/when-resolved/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bahrus/when-resolved.git"
+  },
+  "license": "MIT",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
