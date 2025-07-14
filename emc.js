@@ -3,7 +3,7 @@ import { BeHive, MountObserver, seed } from 'be-hive/be-hive.js';
 /** @import {AP} from './ts-refs/when-resolved/types'; */
 /** @import {EMC} from './ts-refs/trans-render/be/types' */
 
-const remoteSpecifierStringSetLocalProp = String.raw `^(?<remoteSpecifierString>.*) set (?<localProp>.*)`;
+const remoteSpecifierStringSetLocalProp = String.raw `^(?<remoteSpecifierString>.*) set (?<localSpecifierString>.*)`;
 
 /**
  * @type {[string, string]}

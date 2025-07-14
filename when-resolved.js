@@ -33,11 +33,19 @@ class WhenResolved extends BE {
      * @returns 
      */
     async hydrate(self){
-        const {parsedStatements} = self;
+        const {parsedStatements, enhancedElement} = self;
         const {find} = await import('trans-render/dss/find.js');
         const {whenResolved} = await import('be-hive/whenResolved.js');
         for(const parsedStatement of parsedStatements){
             const {localSpecifier, remoteSpecifier} = parsedStatement;
+            const remoteEl = await find(enhancedElement, remoteSpecifier);
+            if(!remoteEl) throw 404;
+            const {enhBase} = remoteSpecifier;
+            const enhancement = await whenResolved(remoteEl, enhBase);
+            const {path} = localSpecifier;
+            if(path === undefined) continue;
+            (await import('trans-render/lib/setProp.js')).setProp(enhancedElement, path, enhancement);
+            console.log({enhancement});
         }
         return /** @type {PAP} */({
             resolved: true,
