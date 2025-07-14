@@ -15,6 +15,19 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serve": "python3 ./node_modules/ssi-server/ssi_server.py",
+    "test": "playwright test",
+    "safari": "npx playwright wk http://localhost:8000",
+    "update": "ncu -u && npm install"
+  },
+    "dependencies": {
+    "be-enhanced": "0.0.181",
+    "be-hive": "0.0.261",
+    "mount-observer": "0.0.76",
+    "trans-render": "0.0.908"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.54.1",
+    "ssi-server": "0.0.1"
   }
 }
