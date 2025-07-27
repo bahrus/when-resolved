@@ -37,19 +37,33 @@ class WhenResolved extends BE {
         const {find} = await import('trans-render/dss/find.js');
         const {whenResolved} = await import('be-hive/whenResolved.js');
         for(const parsedStatement of parsedStatements){
-            const {localSpecifier, remoteSpecifier} = parsedStatement;
+            const {localSpecifier, remoteSpecifier, remotePropertyPath} = parsedStatement;
             const remoteEl = await find(enhancedElement, remoteSpecifier);
             if(!remoteEl) throw 404;
             const {enhBase} = remoteSpecifier;
             const enhancement = await whenResolved(remoteEl, enhBase);
             const {path} = localSpecifier;
             if(path === undefined) continue;
-            (await import('trans-render/lib/setProp.js')).setProp(enhancedElement, path, enhancement);
-            console.log({enhancement});
+            if(remotePropertyPath === undefined){
+                (await import('trans-render/lib/setProp.js')).setProp(enhancedElement, path, enhancement);
+            }else{
+                //TODO:  come up with a resusable to do this, maybe in asmr
+                const val = enhancement[remotePropertyPath];
+                (await import('trans-render/lib/setProp.js')).setProp(enhancedElement, path, val);
+                enhancement.propagator.addEventListener(remotePropertyPath, async e => {
+                    const val = enhancement[remotePropertyPath];
+                    (await import('trans-render/lib/setProp.js')).setProp(enhancedElement, path, val);
+                });
+            }
+            
         }
         return /** @type {PAP} */({
             resolved: true,
         })
+    }
+
+    handleEvent(){
+
     }
 }
 
