@@ -50,12 +50,7 @@ class WhenResolved extends BE {
                 new (await import('trans-render/asmr/BeLinked.js')).BeLinked(
                     enhancement, remotePropertyPath, enhancedElement, path
                 );
-                // const val = enhancement[remotePropertyPath];
-                // (await import('trans-render/lib/setProp.js')).setProp(enhancedElement, path, val);
-                // enhancement.propagator.addEventListener(remotePropertyPath, async e => {
-                //     const val = enhancement[remotePropertyPath];
-                //     (await import('trans-render/lib/setProp.js')).setProp(enhancedElement, path, val);
-                // });
+
             }
             
         }
