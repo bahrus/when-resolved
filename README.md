@@ -1,9 +1,5 @@
 # when-resolved
 
-```html
-<button name=dirPick disabled>Pick directory</button>
+Deprecated:  This package has been renamed be-enhancing.
 
-<details itemscope=dir when-resolved="@dirPick+📁⛏️ set $0?.ish?.handle to directoryHandle">
-    <summary itemprop=name></summary>
-</details>
-```
+This package may be reused for other purposes in the future, however.
